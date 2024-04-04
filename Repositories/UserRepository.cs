@@ -5,7 +5,7 @@ namespace BaltaDataAccessHandsOn.Repositories
 {
     public class UserRepository : Repository<User>
     {
-        public List<User> GetWithRolser()
+        public List<User> GetWithRole()
         {
             var query = @"
                 SELECT 
@@ -36,5 +36,38 @@ namespace BaltaDataAccessHandsOn.Repositories
                 }, splitOn: "Id");
             return users;
         }
+        public void LinkUserProfile(int userID, int roleID)
+        {
+            var verifyUserProfile = GetWithRole();
+            // List<int> userId = new List<int>();
+            List<int> roleId = new List<int>();
+            foreach (var user in verifyUserProfile)
+            {
+                // Console.WriteLine($"{user.Name}");
+                // userId.Add(user.Id);
+                foreach (var roles in user.Roles)
+                {
+                    // Console.WriteLine($"{roles.Name}");
+                    roleId.Add(roles.Id);
+                }
+            }
+
+            if (roleId.Contains(roleID) == false)
+            {
+                var repository = new Repository<UserRole>();
+                var userRole = new UserRole
+                {
+                    RoleId = roleID,
+                    UserId = userID
+                };
+                repository.Create(userRole);
+                Console.WriteLine("User was linked successfully!");
+            }
+            else
+            {
+                Console.WriteLine("The user had this profile.");
+            }
+        }
+
     }
 }

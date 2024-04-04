@@ -1,4 +1,5 @@
-﻿using BaltaDataAccessHandsOn.Screens.MainMenuScreen;
+﻿using BaltaDataAccessHandsOn.Repositories;
+using BaltaDataAccessHandsOn.Screens.MainMenuScreen;
 using BaltaDataAccessHandsOn.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
@@ -12,8 +13,22 @@ namespace BaltaDataAccessHandsOn
             Database.Connection = new SqlConnection(CONNECTION_STRING);
             Database.Connection.Open();
             MainMenuScreen.Show();
+            // GetUsers(Database.Connection);
             Console.ReadKey();
             Database.Connection.Close();
+        }
+        public static void GetUsers(SqlConnection connection)
+        {
+            var repository = new UserRepository();
+            var users = repository.GetWithRole();
+            foreach (var item in users)
+            {
+                Console.WriteLine($"{item.Name}");
+                foreach (var role in item.Roles)
+                {
+                    Console.WriteLine($" - {role.Name}");
+                }
+            }
         }
 
     }

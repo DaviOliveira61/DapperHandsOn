@@ -1,6 +1,6 @@
-namespace BaltaDataAccessHandsOn.Screens.CategoryScreens
+namespace BaltaDataAccessHandsOn.Screens.ProfileScreens
 {
-    public class MenuCategoryScreen
+    public class MenuProfileScreen
     {
         public static void Load()
         {
@@ -24,16 +24,16 @@ namespace BaltaDataAccessHandsOn.Screens.CategoryScreens
                 switch (shortOption)
                 {
                     case 1:
-                        ListCategoryScreen.Load();
+                        ListProfileScreen.Load();
                         break;
                     case 2:
-                        CreateCategoryScreen.Load();
+                        // CreateProfileScreen.Load();
                         break;
                     case 3:
-                        UpdateCategoryScreen.Load();
+                        // UpdateProfileScreen.Load();
                         break;
                     case 4:
-                        DeleteCategoryScreen.Load();
+                        // DeleteProfileScreen.Load();
                         break;
                     case 0:
                         MainMenuScreen.MainMenuScreen.Show();

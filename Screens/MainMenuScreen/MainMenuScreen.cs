@@ -1,3 +1,5 @@
+using BaltaDataAccessHandsOn.Screens.CategoryScreens;
+using BaltaDataAccessHandsOn.Screens.ProfileScreens;
 using BaltaDataAccessHandsOn.Screens.TagScreens;
 
 namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
@@ -27,6 +29,12 @@ namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
 
                 switch (option)
                 {
+                    case 2:
+                        MenuProfileScreen.Load();
+                        break;
+                    case 3:
+                        MenuCategoryScreen.Load();
+                        break;
                     case 4:
                         MenuTagScreen.Load();
                         break;

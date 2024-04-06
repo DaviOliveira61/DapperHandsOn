@@ -1,17 +1,18 @@
-namespace BaltaDataAccessHandsOn.Screens.MenuLinksScreens
+namespace BaltaDataAccessHandsOn.Screens.PostScreens
 {
-    public class MenuLinksScreens
+    public static class MenuPostScreen
     {
         public static void Load()
         {
 
             Console.Clear();
-            Console.WriteLine("Links managment");
+            Console.WriteLine("Post managment");
             Console.WriteLine("------------------");
             Console.WriteLine("What you want to do?");
             Console.WriteLine();
-            Console.WriteLine("1 - Link an user to a profile");
-            Console.WriteLine("2 - Link a post with a tag");
+            Console.WriteLine("1 - Create a post");
+            Console.WriteLine("2 - Edit some post");
+            Console.WriteLine("3 - Delete a post");
             Console.WriteLine("0 - Back to the main menu");
             Console.WriteLine("");
             Console.WriteLine("--------");
@@ -22,13 +23,16 @@ namespace BaltaDataAccessHandsOn.Screens.MenuLinksScreens
                 switch (shortOption)
                 {
                     case 1:
-                        ConnectAnUserProfile.Load();
+                        CreatePostScreen.Load();
                         break;
-                    // case 2:
-                    //     // CreateUserScreen.Load();
-                    //     break;
+                    case 2:
+                        // UpdatePostScreen.Load();
+                        break;
+                    case 3:
+                        // DeletePostScreen.Load();
+                        break;
                     case 0:
-                        MainMenuScreen.MainMenuScreen.Show();
+                        MainMenuScreen.MainMenuScreen.Load();
                         break;
                     default: Load(); break;
                 }

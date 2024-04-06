@@ -15,7 +15,7 @@ namespace BaltaDataAccessHandsOn.Screens.MenuLinksScreens
             var roleID = int.Parse(Console.ReadLine());
             LinkUserProfile(userID, roleID);
             Console.ReadKey();
-            MenuLinksScreens.Load();
+            MainMenuScreen.MainMenuScreen.Load();
         }
         private static void LinkUserProfile(int userId, int roleId)
         {

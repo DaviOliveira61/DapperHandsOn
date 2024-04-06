@@ -33,7 +33,7 @@ namespace BaltaDataAccessHandsOn.Screens.ProfileScreens
             catch (Exception ex)
             {
 
-                Console.WriteLine($"Unable to craete {role.Name}");
+                Console.WriteLine($"Unable to create {role.Name}");
                 Console.WriteLine(ex.Message);
             }
 

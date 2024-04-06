@@ -3,12 +3,13 @@ using BaltaDataAccessHandsOn.Screens.ProfileScreens;
 using BaltaDataAccessHandsOn.Screens.TagScreens;
 using BaltaDataAccessHandsOn.Screens.UserScreens;
 using BaltaDataAccessHandsOn.Screens.MenuLinksScreens;
+using BaltaDataAccessHandsOn.Screens.PostScreens;
 
 namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
 {
     public static class MainMenuScreen
     {
-        public static void Show()
+        public static void Load()
         {
             try
             {
@@ -24,6 +25,7 @@ namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
                 Console.WriteLine("5 - Link profile/user");
                 Console.WriteLine("6 - Link post/tag");
                 Console.WriteLine("7 - Reports");
+                Console.WriteLine("8 - Post managment");
                 Console.WriteLine("");
                 Console.WriteLine("--------");
                 Console.Write("Your choose: ");
@@ -44,14 +46,23 @@ namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
                         MenuTagScreen.Load();
                         break;
                     case 5:
-                        MenuLinksScreens.MenuLinksScreens.Load();
+                        ConnectAnUserProfile.Load();
                         break;
-                    default: Show(); break;
+                    case 6:
+                        // do something
+                        break;
+                    case 7:
+                        // do something
+                        break;
+                    case 8:
+                        MenuPostScreen.Load();
+                        break;
+                    default: Load(); break;
                 }
             }
             catch (System.Exception)
             {
-                Show();
+                Load();
             }
 
         }

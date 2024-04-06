@@ -36,7 +36,7 @@ namespace BaltaDataAccessHandsOn.Screens.UserScreens
                         DeleteUserScreen.Load();
                         break;
                     case 0:
-                        MainMenuScreen.MainMenuScreen.Show();
+                        MainMenuScreen.MainMenuScreen.Load();
                         break;
                     default: Load(); break;
                 }

@@ -12,7 +12,7 @@ namespace BaltaDataAccessHandsOn
         {
             Database.Connection = new SqlConnection(CONNECTION_STRING);
             Database.Connection.Open();
-            MainMenuScreen.Show();
+            MainMenuScreen.Load();
             // GetUsers(Database.Connection);
             Console.ReadKey();
             Database.Connection.Close();

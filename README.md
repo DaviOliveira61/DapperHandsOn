@@ -11,4 +11,4 @@
 
 > **CONNECTION_STRING:  
 >  
->>Server=localhost,1433;Database=balta;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;**  
+>>Server=localhost,1433;Database=;User ID=;Password=;Trusted_Connection=False; TrustServerCertificate=True;**  

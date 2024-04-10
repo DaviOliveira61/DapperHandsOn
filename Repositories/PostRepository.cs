@@ -44,16 +44,17 @@ namespace BaltaDataAccessHandsOn.Repositories
             List<int> tagId = new List<int>();
             foreach (var post in verifyPostTag)
             {
-                // Console.WriteLine($"{user.Name}");
-                // userId.Add(user.Id);
-                foreach (var tags in post.Tags)
+                if (post.Id == postID)
                 {
-                    // Console.WriteLine($"{roles.Name}");
-                    tagId.Add(tags.Id);
+                    foreach (var tags in post.Tags)
+                    {
+                        if (tags != null)
+                            tagId.Add(tags.Id);
+                    }
                 }
             }
 
-            if (tagId.Contains(tagID) == false)
+            if (tagId.Contains(tagID) == false || tagId == null)
             {
                 var repository = new Repository<PostTag>();
                 var postTag = new PostTag

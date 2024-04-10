@@ -1,6 +1,6 @@
 ﻿using BaltaDataAccessHandsOn.Repositories;
 using BaltaDataAccessHandsOn.Screens.MainMenuScreen;
-using BaltaDataAccessHandsOn.Screens.TagScreens;
+using BaltaDataAccessHandsOn.Screens.MenuLinksScreens;
 using Microsoft.Data.SqlClient;
 
 namespace BaltaDataAccessHandsOn
@@ -12,7 +12,8 @@ namespace BaltaDataAccessHandsOn
         {
             Database.Connection = new SqlConnection(CONNECTION_STRING);
             Database.Connection.Open();
-            MainMenuScreen.Load();
+            ConnectAPostWithATag.Load();
+            // MainMenuScreen.Load();
             // GetUsers(Database.Connection);
             // GetPost(Database.Connection);
             Console.ReadKey();

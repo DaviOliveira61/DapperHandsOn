@@ -29,7 +29,7 @@ namespace BaltaDataAccessHandsOn.Screens.PostScreens
                         UpdatePostScreen.Load();
                         break;
                     case 3:
-                        // DeletePostScreen.Load();
+                        DeletePostScreen.Load();
                         break;
                     case 0:
                         MainMenuScreen.MainMenuScreen.Load();

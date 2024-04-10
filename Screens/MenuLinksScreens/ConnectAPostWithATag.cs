@@ -19,17 +19,17 @@ namespace BaltaDataAccessHandsOn.Screens.MenuLinksScreens
         }
         private static void LinkPostAndTag(int postId, int tagId)
         {
-            try
-            {
-                var postRepository = new PostRepository();
-                postRepository.LinkPostAndTag(postId, tagId);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Post won't linked");
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine(ex.Source);
-            }
+            // try
+            // {
+            var postRepository = new PostRepository();
+            postRepository.LinkPostAndTag(postId, tagId);
+            // }
+            // // catch (Exception ex)
+            // // {
+            // //     Console.WriteLine("Post won't linked");
+            // //     Console.WriteLine(ex.StackTrace);
+            // //     Console.WriteLine(ex.Source);
+            // // }
         }
     }
 }

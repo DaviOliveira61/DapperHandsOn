@@ -114,7 +114,7 @@ namespace BaltaDataAccessHandsOn.Screens.PostScreens
                     var repository = new Repository<Post>();
                     var category = new Category();
                     repository.Create(post);
-                    category.insertAPost(post);
+                    category.insertAPost(post, post.CategoryId);
 
                     Console.WriteLine();
                     Console.WriteLine("Post has been created!");

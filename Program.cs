@@ -14,6 +14,7 @@ namespace BaltaDataAccessHandsOn
             Database.Connection.Open();
             MainMenuScreen.Load();
             // GetUsers(Database.Connection);
+            // GetPost(Database.Connection);
             Console.ReadKey();
             Database.Connection.Close();
         }
@@ -27,9 +28,26 @@ namespace BaltaDataAccessHandsOn
                 foreach (var role in item.Roles)
                 {
                     Console.WriteLine($" - {role.Name}");
+
+                    Console.WriteLine($" - {role.Name}");
+
+
                 }
             }
         }
-
+        public static void GetPost(SqlConnection connection)
+        {
+            var repository = new PostRepository();
+            var posts = repository.GetWithTag();
+            foreach (var item in posts)
+            {
+                Console.WriteLine($"{item.Id}");
+                Console.WriteLine($"{item.Title}");
+                foreach (var tag in item.Tags)
+                {
+                    Console.WriteLine($" - {tag.Name}");
+                }
+            }
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
                         ConnectAnUserProfile.Load();
                         break;
                     case 6:
-                        // do something
+                        ConnectAPostWithATag.Load();
                         break;
                     case 7:
                         // do something

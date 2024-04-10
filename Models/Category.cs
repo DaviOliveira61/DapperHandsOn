@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BaltaDataAccessHandsOn.Repositories;
 using Dapper.Contrib.Extensions;
 
 namespace BaltaDataAccessHandsOn.Models
@@ -13,9 +14,13 @@ namespace BaltaDataAccessHandsOn.Models
         public List<Post> Posts { get; set; }
 
 
-        public void insertAPost(Post post)
+        public void insertAPost(Post post, int id)
         {
-            Posts.Add(post);
+            var repository = new Repository<Category>();
+            var categories = repository.Get();
+            foreach (var item in categories)
+                if (item.Id == id)
+                    Posts.Add(post);
         }
     }
 }

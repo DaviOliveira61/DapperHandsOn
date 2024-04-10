@@ -26,7 +26,7 @@ namespace BaltaDataAccessHandsOn.Screens.PostScreens
                         CreatePostScreen.Load();
                         break;
                     case 2:
-                        // UpdatePostScreen.Load();
+                        UpdatePostScreen.Load();
                         break;
                     case 3:
                         // DeletePostScreen.Load();

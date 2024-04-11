@@ -4,6 +4,7 @@ using BaltaDataAccessHandsOn.Screens.TagScreens;
 using BaltaDataAccessHandsOn.Screens.UserScreens;
 using BaltaDataAccessHandsOn.Screens.MenuLinksScreens;
 using BaltaDataAccessHandsOn.Screens.PostScreens;
+using BaltaDataAccessHandsOn.Screens.ReportsScreen;
 
 namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
 {
@@ -52,7 +53,7 @@ namespace BaltaDataAccessHandsOn.Screens.MainMenuScreen
                         ConnectAPostWithATag.Load();
                         break;
                     case 7:
-                        // do something
+                        MenuReportScreen.Load();
                         break;
                     case 8:
                         MenuPostScreen.Load();

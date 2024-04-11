@@ -1,6 +1,7 @@
 ﻿using BaltaDataAccessHandsOn.Repositories;
 using BaltaDataAccessHandsOn.Screens.MainMenuScreen;
 using BaltaDataAccessHandsOn.Screens.MenuLinksScreens;
+using BaltaDataAccessHandsOn.Screens.UserScreens;
 using Microsoft.Data.SqlClient;
 
 namespace BaltaDataAccessHandsOn
@@ -12,10 +13,12 @@ namespace BaltaDataAccessHandsOn
         {
             Database.Connection = new SqlConnection(CONNECTION_STRING);
             Database.Connection.Open();
-            ConnectAPostWithATag.Load();
-            // MainMenuScreen.Load();
+            // ConnectAPostWithATag.Load();
+            MainMenuScreen.Load();
             // GetUsers(Database.Connection);
             // GetPost(Database.Connection);
+            // DeleteUserScreen.Load();
+            // CreateUserScreen.Load();
             Console.ReadKey();
             Database.Connection.Close();
         }
@@ -25,16 +28,15 @@ namespace BaltaDataAccessHandsOn
             var users = repository.GetWithRole();
             foreach (var item in users)
             {
-                Console.WriteLine($"{item.Name}");
+                Console.Write($"{item.Name}, ");
+                Console.WriteLine($"{item.Email} ");
+
                 foreach (var role in item.Roles)
                 {
-                    Console.WriteLine($" - {role.Name}");
-
-                    Console.WriteLine($" - {role.Name}");
-
-
+                    Console.Write($" - {role.Name}, ");
                 }
             }
+
         }
         public static void GetPost(SqlConnection connection)
         {

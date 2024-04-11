@@ -22,7 +22,9 @@ namespace BaltaDataAccessHandsOn.Screens.ProfileScreens
             try
             {
                 var repository = new Repository<Role>();
+                var userRepository = new UserRepository();
                 repository.Delete(id);
+                userRepository.DeleteUserRole(id, false);
                 Console.WriteLine("Deleted successfully!");
             }
             catch (Exception)

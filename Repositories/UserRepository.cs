@@ -1,5 +1,7 @@
 using BaltaDataAccessHandsOn.Models;
 using Dapper;
+using Dapper.Contrib.Extensions;
+using Microsoft.Data.SqlClient;
 
 namespace BaltaDataAccessHandsOn.Repositories
 {
@@ -43,16 +45,17 @@ namespace BaltaDataAccessHandsOn.Repositories
             List<int> roleId = new List<int>();
             foreach (var user in verifyUserProfile)
             {
-                // Console.WriteLine($"{user.Name}");
-                // userId.Add(user.Id);
-                foreach (var roles in user.Roles)
+                if (user.Id == userID)
                 {
-                    // Console.WriteLine($"{roles.Name}");
-                    roleId.Add(roles.Id);
+                    foreach (var roles in user.Roles)
+                    {
+                        if (roles != null)
+                            roleId.Add(roles.Id);
+                    }
                 }
             }
 
-            if (roleId.Contains(roleID) == false)
+            if (roleId.Contains(roleID) == false || roleId == null)
             {
                 var repository = new Repository<UserRole>();
                 var userRole = new UserRole
@@ -67,6 +70,58 @@ namespace BaltaDataAccessHandsOn.Repositories
             {
                 Console.WriteLine("The user had this profile.");
             }
+        }
+        public void DeleteUserRole(int id, bool isUser)
+        {
+            var sqlUser = "SELECT * FROM [UserRole] WHERE [UserId]=@id";
+            var sqlRole = "SELECT * FROM [UserRole] WHERE [RoleId]=@id";
+            var usersRoles = Database.Connection.Query(sqlUser, new
+            {
+                id
+            });
+            var roles = Database.Connection.Query(sqlRole, new
+            {
+                id
+            });
+            try
+            {
+                if (isUser == true)
+                {
+
+                    foreach (var users in usersRoles)
+                    {
+                        if (users.UserId == id)
+                        {
+                            var sqlDelete = "DELETE [UserRole] WHERE [UserId]=@id";
+                            Database.Connection.Execute(sqlDelete, new
+                            {
+                                id
+                            });
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var role in roles)
+                    {
+                        if (role.RoleId == id)
+                        {
+                            var sqlDelete = "DELETE [UserRole] WHERE [RoleId]=@id";
+                            Database.Connection.Execute(sqlDelete, new
+                            {
+                                id
+                            });
+                        }
+                    }
+                }
+
+            }
+            catch (System.NullReferenceException)
+            {
+
+                Console.WriteLine("Unable to delete because this role doens't exist!");
+            }
+
         }
 
     }

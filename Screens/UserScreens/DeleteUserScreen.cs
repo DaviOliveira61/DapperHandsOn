@@ -24,7 +24,7 @@ namespace BaltaDataAccessHandsOn.Screens.UserScreens
                 var userRepository = new UserRepository();
                 var repository = new Repository<User>();
                 repository.Delete(id);
-                userRepository.Delete(id);
+                userRepository.DeleteUserRole(id, true);
                 Console.WriteLine("Deleted successfully!");
             }
             catch (Exception)
